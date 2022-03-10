@@ -307,7 +307,7 @@ height: 100%;
 }
 
 body .content-wrapper{
-  margin: 0px 57px;
+  margin: 0px 30px;
   padding: 10px 20px;
   width: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -348,6 +348,20 @@ input[type=text] {
   padding: 5px 15px 5px;
   margin-bottom: 8px;
 }
+
+input[type=password] {
+    width: 100%;
+    margin-left: 8px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 5px 15px 5px;
+    margin-bottom: 8px;
+  }
 
 /* input[type=date] {
   width: 100%;

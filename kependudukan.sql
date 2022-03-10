@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Feb 2022 pada 08.18
+-- Waktu pembuatan: 10 Mar 2022 pada 16.45
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -34,8 +34,16 @@ CREATE TABLE `data_kelahiran` (
   `nik_ibu` varchar(16) NOT NULL,
   `nik_ayah` varchar(16) NOT NULL,
   `lampiran_surat_lahir` varchar(100) NOT NULL,
-  `created_time` datetime NOT NULL DEFAULT current_timestamp()
+  `created_time` datetime NOT NULL DEFAULT current_timestamp(),
+  `jenis_kelamin` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `data_kelahiran`
+--
+
+INSERT INTO `data_kelahiran` (`kd_kelahiran`, `tanggal_lahir`, `berat_lahir`, `nik_ibu`, `nik_ayah`, `lampiran_surat_lahir`, `created_time`, `jenis_kelamin`) VALUES
+('KL-2022-03-10-1', '2022-03-01', 3.4, '6301032501990003', '6301031211960003', 'download.png', '2022-03-10 20:53:28', 'L');
 
 -- --------------------------------------------------------
 
@@ -49,6 +57,13 @@ CREATE TABLE `data_keluarga` (
   `lampiran_kk` varchar(100) NOT NULL,
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `data_keluarga`
+--
+
+INSERT INTO `data_keluarga` (`kd_keluarga`, `nik`, `lampiran_kk`, `created_time`) VALUES
+('6301032122450005', '6301032103950003', '2847329931.jpg', '2022-03-10 20:11:39');
 
 -- --------------------------------------------------------
 
@@ -71,7 +86,8 @@ CREATE TABLE `data_pernikahan` (
 --
 
 INSERT INTO `data_pernikahan` (`nik`, `tanggal_pernikahan`, `jumlah_anak`, `status_keluarga`, `no_akta_nikah`, `lampiran_buku_nikah`, `created_time`) VALUES
-('630103240695', '2022-02-13', 0, 'S', '0215/012/VIII/2022', 'halsuami.jpg', '2022-02-18 15:11:30');
+('6301032501990003', '2017-03-14', 0, 'I', '0521/021/VIII/2017', 'halsuami.jpg', '2022-02-20 09:44:04'),
+('6301031211960003', '2017-03-14', 0, 'S', '0521/021/VIII/2017', 'halsuami.jpg', '2022-02-20 09:57:06');
 
 -- --------------------------------------------------------
 
@@ -84,6 +100,13 @@ CREATE TABLE `login` (
   `username` varchar(33) NOT NULL,
   `password` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -113,7 +136,9 @@ CREATE TABLE `master_kependudukan` (
 --
 
 INSERT INTO `master_kependudukan` (`id`, `nik`, `nama`, `alamat_ktp`, `kd_pekerjaan`, `kd_status_nikah`, `jenis_kelamin`, `agama`, `kd_pendidikan`, `rt`, `rw`, `alamat_domisili`, `tanggal_lahir`, `created_time`) VALUES
-(1, '630103240695', 'Mulyadi', 'Jl. Perintis Kemerdekaan No 41, RT 001, RW 005 , Kelurahan Pasar Lama, Kecamatan Banjarmasin Tengah, Banjarmasin, kalimantan Selatan', 'P3', 'NK0', 'L', 'Islam', 'PD3', '005', '001', 'Desa tajau Pecah', '1995-06-24', '2022-02-18 01:32:47');
+(2, '6301031211960003', 'Eko Sukriansyah', 'Jl. Delima No.05, RT.001, RW.001, Desa Tajau Pecah', 'P3', 'NK0', 'L', 'Islam', 'PD3', '001', '001', 'Jl. Delima No.05, RT.001, RW.001, Desa Tajau Pecah', '1996-11-12', '2022-02-20 09:26:43'),
+(3, '6301032501990003', 'Siti Sunarti', 'Jl. Delima No.05, RT.001, RW.001, Desa Tajau Pecah', 'P3', 'NK0', 'P', 'Islam', 'PD3', '001', '001', 'Jl. Delima No.05, RT.001, RW.001, Desa Tajau Pecah', '1999-09-25', '2022-02-20 09:28:42'),
+(4, '6301032103950003', 'Riska Aulia Fitri', 'Jl. Kemakmuran No.22 , RT.003, RW.001, Desa Tajau Pecah', 'P3', 'NK1', 'P', 'Islam', 'PD6', '003', '001', 'Jl. Kemakmuran No.22 , RT.003, RW.001, Desa Tajau Pecah', '1995-03-21', '2022-02-20 09:36:11');
 
 -- --------------------------------------------------------
 
@@ -256,13 +281,13 @@ ALTER TABLE `master_status_nikah`
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `master_kependudukan`
 --
 ALTER TABLE `master_kependudukan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

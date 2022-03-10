@@ -1,11 +1,12 @@
-<?php 
+<?php
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header("Location: login.php");
+    }
     require('_constant.php');
     require('_function.php');
     include("_connection.php");
     $query = mysqli_query($connect, "SELECT * FROM master_pekerjaan");
-   //  while($data = mysqli_fetch_assoc($query)){
-   //     var_dump($data["kd_pekerjaan"]);
-   //  }
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +28,13 @@
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
          <script src="http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+         <script src="https://www.gstatic.com/charts/loader.js"></script>
       </head>
       <body>
          </div>
          <nav class="main-menu">
             <div>
-               <a class="logo" href="http://startific.com">
+               <a class="logo" href="index.php?page=admin">
                    <center><img src="images/logo-tala.png" width="80%" style="padding: 5px;"/></center>
                </a> 
             </div>
@@ -40,7 +42,7 @@
             <div class="scrollbar" id="style-1">
             <ul>
                <li>                                   
-                  <a href="http://startific.com">
+                  <a href="index.php?page=admin">
                   <i class="fa fa-home fa-lg"></i>
                   <span class="nav-text">Home</span>
                   </a>
@@ -53,7 +55,7 @@
                   </a>
                </li>
                <li class="darkerli">
-                <a href="http://startific.com">
+                <a href="index.php?page=keluarga">
                 <i class="fa fa-book fa-lg"></i>
                 <span class="nav-text">Data Keluarga</span>
                 </a>
@@ -65,15 +67,21 @@
                   </a>
                </li>
                <li class="darkerli">
-                  <a href="http://startific.com">
+                  <a href="index.php?page=kelahiran">
                   <i class="fa fa-book fa-lg"></i>
                   <span class="nav-text">Data Kelahiran</span>
+                  </a>
+               </li>
+               <li class="darkerli">
+                  <a href="index.php?page=rekap">
+                  <i class="fa fa-book fa-lg"></i>
+                  <span class="nav-text">Rekap Data</span>
                   </a>
                </li>
                
             </ul>
             <li>
-               <a href="http://startific.com">
+               <a href="logout-action.php">
                <i class="fa fa-power-off fa-lg"></i>
                <span class="nav-text">Logout</span>
                </a>
