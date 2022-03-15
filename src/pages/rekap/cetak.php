@@ -87,7 +87,9 @@
         }
         if($kategori == "pernikahan"){
             ?>
-            <h3>Data Pernikahan Periode <?php echo $dari ?> s/d <?php echo $hingga ?> Desa Tajau Pecah<h3>
+            <center>
+                <h3 style="font-size: 15px; letter-spacing:2;">DATA PERNIKAHAN PERIODE <?php echo $dari ?> s/d <?php echo $hingga ?> DESA TAJAU PECAH<h3>
+            </center>
             <table id="table-penduduk" class="display">
                 <thead>
                     <tr>
@@ -139,7 +141,10 @@
         }
         if($kategori == "keluarga"){
             ?>
-            <h3>Data Keluarga Periode <?php echo $dari ?> s/d <?php echo $hingga ?> Desa Tajau Pecah<h3>
+            <center>
+                <h3 style="font-size: 15px; letter-spacing:2;">DATA KELUARGA PERIODE <?php echo $dari ?> s/d <?php echo $hingga ?> DESA TAJAU PECAH<h3>
+                
+            </center>
             <table id="table-penduduk" class="display">
                 <thead>
                     <tr>
@@ -183,6 +188,9 @@
         }
         if($kategori == "kelahiran"){
             ?>
+            <center>
+                <h3 style="font-size: 15px; letter-spacing:2;">DATA KELAHIRAN PERIODE <?php echo $dari ?> s/d <?php echo $hingga ?> DESA TAJAU PECAH<h3>
+            </center>
                 <table id="table-penduduk" class="display">
                     <thead>
                         <tr>
@@ -227,7 +235,10 @@
             $jumlah_keluarga = mysqli_fetch_array(mysqli_query($connect, "SELECT COUNT(*) AS jumlah FROM data_keluarga WHERE created_time BETWEEN '$dari' AND '$hingga' GROUP BY kd_keluarga"));
             $jumlah_kelahiran = mysqli_fetch_array(mysqli_query($connect, "SELECT COUNT(*) AS jumlah FROM data_kelahiran WHERE created_time BETWEEN '$dari' AND '$hingga'"));
             ?>
-                <h3>Statistik Pencatatan Kependudukan Periode <?php echo $dari ?> s/d <?php echo $hingga ?> Desa Tajau Pecah</h3>
+            <center>
+
+                <h3 style="font-size: 15px; letter-spacing:2;">STATISTIK PENCATATAN KEPENDUDUKAN PERIODE <?php echo $dari ?> s/d <?php echo $hingga ?> DESA TAJAU PECAH</h3>
+            </center>
                 <div style="width: 40%; border: 1px solid black; padding: 15px 15px">
                 <strong>Jumlah Penduduk</strong>
                 <p style="margin-left:20"><?php echo $jumlah_penduduk["jumlah"] ?></p>
@@ -248,7 +259,7 @@
         <p>Pltk. Kepala Desa Tajau Pecah</p><br><br><br>
         <center><p style="font-size: 15px; letter-spacing: 2"><strong>AGUS STYAWATI</strong></P></center>
     </div>
-    <div style="float:bottom">
+    <div>
         <p style="font-size: 8px">dicetak pada tanggal : <?php echo date('d/m/y') ?></p>
     </div>
     </body>
