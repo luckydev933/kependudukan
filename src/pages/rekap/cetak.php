@@ -5,8 +5,22 @@
          <meta name="google" value="notranslate"/>
          <title>Rekap Data</title>
          <link rel="stylesheet" type="text/css" href="style.css">
+         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
       </head>
     <body>
+    <center>
+    <div class="header" style="line-height: 0.25; letter-spacing:2; margin-top: 10">
+        <div>
+            <img style="width:5%; float:left" src="../../../images/logo-tala.png" alt="" srcset="">
+        </div>
+        <p class="header-title" style="font-size: 15px;"><strong>PEMERINTAH KABUPATEN TANAH LAUT</strong></p>
+        <P style="font-size: 15px;"><strong>DESA TAJAU PECAH</strong></P>
+        <P style="font-size: 15px;"><strong>KECAMATAN BATU AMPAR</strong></P>
+        <p style="font-size: 10px;">Alamat: Jl. Merpati RT.005 Dusun II Kode Pos 70882</p>
+    </div>
+    <hr style="border: 1px solid black">
+    </center>
     <?php 
     if(isset($_GET['kategori'])){
         $kategori = $_GET['kategori'];
@@ -15,7 +29,10 @@
 
         if($kategori == "kependudukan"){
             ?>
-            <h3>Data Kependudukan Periode <?php echo $dari ?> s/d <?php echo $hingga ?> Desa Tajau Pecah<h3>
+            <center>
+                <h3 style="font-size: 15px; letter-spacing:2;">DATA KEPENDUDUKAN PERIODE <?php echo $dari ?> s/d <?php echo $hingga ?> DESA TAJAU PECAH<h3>
+            </center>
+                
             <table id="table-penduduk" class="display">
             <thead>
                 <tr>
@@ -226,8 +243,31 @@
     }
 
     ?>
+    <br>
+    <div style="float:right">
+        <p>Pltk. Kepala Desa Tajau Pecah</p><br><br><br>
+        <center><p style="font-size: 15px; letter-spacing: 2"><strong>AGUS STYAWATI</strong></P></center>
+    </div>
+    <div style="float:bottom">
+        <p style="font-size: 8px">dicetak pada tanggal : <?php echo date('d/m/y') ?></p>
+    </div>
     </body>
     <script>
-        window.print()
+        var css = '@page { size: landscape; }',
+        head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
+
+        style.type = 'text/css';
+        style.media = 'print';
+
+        if (style.styleSheet){
+        style.styleSheet.cssText = css;
+        } else {
+        style.appendChild(document.createTextNode(css));
+        }
+
+        head.appendChild(style);
+
+        window.print();
     </script>
 </html>

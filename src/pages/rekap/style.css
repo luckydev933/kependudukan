@@ -9,6 +9,22 @@ table {
     border-bottom: 1px solid #ddd;
   }
 
-body {
+/* body {
     font-family: monospace;
+} */
+
+.header {
+    text-align: center;
+}
+
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 100;
+}
+
+p.header-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 100;
 }
